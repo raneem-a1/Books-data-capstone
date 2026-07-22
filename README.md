@@ -175,8 +175,8 @@ Completed as part of the **Modern Data Engineering for AI Systems** program at *
 
 ## Team Members
 
-| Name | Responsibility |
-|------|----------------|
+| Name |
+|------|
 | Raneem Abdullah Alsheddi |
 | Danah musaad Aljumaiah |
 | Haya AbdulMajeed Aljuraysi |
