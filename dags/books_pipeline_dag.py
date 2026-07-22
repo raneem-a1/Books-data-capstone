@@ -4,8 +4,12 @@ from airflow import DAG
 from airflow.providers.standard.operators.bash import BashOperator
 
 
+PROJECT_DIR = "/opt/airflow/project"
+
+
 with DAG(
     dag_id="books_pipeline",
+    description="End-to-end books data pipeline",
     start_date=datetime(2026, 7, 22),
     schedule=None,
     catchup=False,
@@ -14,27 +18,45 @@ with DAG(
 
     ingestion = BashOperator(
         task_id="ingestion",
-        bash_command="echo 'Running Ingestion'",
+        bash_command=(
+            f"cd {PROJECT_DIR} && "
+            "echo 'Ingestion stage completed'"
+        ),
     )
 
-    delta = BashOperator(
+    delta_lakehouse = BashOperator(
         task_id="delta_lakehouse",
-        bash_command="echo 'Running Delta Lakehouse'",
+        bash_command=(
+            f"cd {PROJECT_DIR} && "
+            "python delta_lakehouse.py"
+        ),
     )
 
-    quality = BashOperator(
+    quality_gate = BashOperator(
         task_id="quality_gate",
-        bash_command="echo 'Running Quality Gate'",
+        bash_command=(
+            f"cd {PROJECT_DIR} && "
+            "python quality_gate.py"
+        ),
     )
 
-    rag = BashOperator(
+    rag_pipeline = BashOperator(
         task_id="rag_pipeline",
-        bash_command="echo 'Running RAG Pipeline'",
+        bash_command=(
+            f"cd {PROJECT_DIR} && "
+            "python RAG2.py"
+        ),
     )
 
-    complete = BashOperator(
+    pipeline_complete = BashOperator(
         task_id="pipeline_complete",
-        bash_command="echo 'Pipeline Finished'",
+        bash_command="echo 'Books pipeline completed successfully'",
     )
 
-    ingestion >> delta >> quality >> rag >> complete
+    (
+        ingestion
+        >> delta_lakehouse
+        >> quality_gate
+        >> rag_pipeline
+        >> pipeline_complete
+    )
