@@ -1,49 +1,172 @@
-# Books-data-capstone
+# Books Data Engineering for AI Systems Capstone
 
 ## Overview
-End-to-end data engineering pipeline built for the **Modern Data Engineering for AI Systems** capstone. 
-It ingests book metadata, stores it through a Bronze/Silver/Gold Delta Lakehouse, powers a RAG-based 
-question-answering system over book descriptions, and is orchestrated end-to-end with automated quality 
-gates and lineage tracking.
+End-to-end data engineering pipeline built for the **Modern Data Engineering for AI Systems** Capstone.
 
-**Dataset:** [Books Dataset (Kaggle)](https://www.kaggle.com/datasets/saurabhbagchi/books-dataset)
+This project processes book metadata through a complete modern data engineering pipeline. It starts with real-time ingestion using Apache Kafka, validates incoming records with Pydantic, stores the data in a Delta Lakehouse (Bronze, Silver, and Gold layers), powers a Retrieval-Augmented Generation (RAG) search system, and orchestrates the entire workflow using Apache Airflow with automated data quality checks and lineage tracking.
 
-## Problem it solves
-Raw, unvalidated book data (from CSV) is streamed, validated, cleaned, aggregated, and made searchable 
-via natural language — while every stage is quality-checked, logged, and traceable.
+**Dataset:** Books.csv
 
-## Architecture
-1. **Ingestion** — Kafka producer/consumer with a Pydantic schema gate; malformed records routed to a dead-letter topic.
-2. **Delta Lakehouse** — Bronze (raw) → Silver (cleaned/merged) → Gold (aggregated) layers using Delta Lake.
-3. **RAG Pipeline** — Chunking, embeddings, vector store, hybrid search (dense + BM25), reranking.
-4. **Orchestration** — Airflow DAG coordinating all stages with dependency gating.
-5. **Quality Gate + Lineage** — Great Expectations checks + OpenLineage event tracking.
+---
+
+## Problem Statement
+
+Book metadata collected from CSV files may contain missing values, invalid records, and inconsistent formats. This project builds a complete pipeline that validates, cleans, stores, and transforms the data into reliable datasets while enabling semantic search and ensuring every stage is monitored, traceable, and quality-controlled.
+
+---
+
+## Project Architecture
+
+### 1. Ingestion
+- Apache Kafka Producer
+- Apache Kafka Consumer
+- Pydantic schema validation
+- Dead Letter Queue (DLQ) for invalid records
+- Validation error logging
+
+### 2. Delta Lakehouse
+- Bronze Layer (Raw Data)
+- Silver Layer (Cleaned Data)
+- Gold Layer (Business Aggregations)
+- Delta MERGE (Upsert)
+- Schema Enforcement
+
+### 3. RAG Pipeline
+- Document Chunking
+- Embeddings Generation
+- Vector Database
+- Hybrid Search (Dense + BM25)
+- Reranking
+- Context-aware Question Answering
+
+### 4. Orchestration
+- Apache Airflow DAG
+- Automated task dependencies
+- Pipeline scheduling
+- Failure handling
+
+### 5. Quality Gate & Lineage
+- Great Expectations
+- OpenLineage
+- Data validation reports
+- Pipeline event tracking
+
+---
+
+## Project Structure
+
+```
+BooksProject/
+│
+├── data/
+│   └── Books.csv
+│
+├── producer.py
+├── consumer.py
+├── schema.py
+├── requirements.txt
+├── README.md
+│
+├── bronze/
+├── silver/
+├── gold/
+│
+├── airflow/
+├── rag/
+└── quality/
+```
+
+---
+
+## Technologies
+
+- Python
+- Apache Kafka
+- kafka-python
+- Pandas
+- Pydantic
+- Apache Spark
+- Delta Lake
+- Apache Airflow
+- Great Expectations
+- OpenLineage
+
+---
 
 ## Prerequisites
+
 - Python 3.10+
-- Java (for Kafka + Spark)
+- Java 17
+- Apache Kafka
 - pip
 
-## Setup
+---
+
+## Installation
+
 ```bash
-git clone <repo-url>
-cd <repo-name>
+git clone <repository-url>
+
+cd BooksProject
+
 pip install -r requirements.txt
 ```
 
+---
 
 ## How to Run
-_(will be filled in as each stage is completed)_
+
+### Start Kafka
+
+```bash
+brew services start kafka
+```
+
+### Run Producer
+
+```bash
+python3 producer.py
+```
+
+### Run Consumer
+
+```bash
+python3 consumer.py
+```
+
+---
+
+## Current Progress
+
+### Completed
+
+- Kafka Producer
+- Kafka Consumer
+- Pydantic Schema Validation
+- Dead Letter Queue (DLQ)
+
+### In Progress
+
+- Delta Lakehouse
+- RAG Pipeline
+- Airflow Orchestration
+- Quality Gate
+- OpenLineage
+
+---
 
 ## Expected Output
-_(will be filled in as each stage is completed)_
 
+- Valid records are successfully processed.
+- Invalid records are routed to the **books_dlq** topic.
+- Validation errors are recorded.
+- Clean data is prepared for the Delta Lakehouse.
+
+---
 
 ## Training Program
-Completed as part of the **Modern Data Engineering for AI Systems** program, SDAIA Academy 
-(delivered via Learning Space). 
-Cohort dates: 19 July – 23 July, 2026
 
-Reference: [SDAIA Academy on GitHub](https://github.com/SDAIAAcademy)
+Completed as part of the **Modern Data Engineering for AI Systems** program at **SDAIA Academy**.
 
-
+Training Dates:
+**19 July 2026 – 23 July 2026**
