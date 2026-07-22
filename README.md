@@ -171,3 +171,12 @@ Completed as part of the **Modern Data Engineering for AI Systems** program at *
 **Training Dates:** 19 July 2026 – 23 July 2026
 
 **Reference:** https://github.com/SDAIAAcademy
+
+
+## Team Members
+
+| Name | Responsibility |
+|------|----------------|
+| Raneem Abdullah Alsheddi |
+| Danah musaad Aljumaiah |
+| Haya AbdulMajeed Aljuraysi |
