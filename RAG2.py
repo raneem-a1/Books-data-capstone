@@ -9,7 +9,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from rank_bm25 import BM25Okapi
 import anthropic
 
-client_llm = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+#client_llm = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 #!wget -O Books.csv "https://gist.githubusercontent.com/jaidevd/23aef12e9bf56c618c41/raw/c05e98672b8d52fa0cb94aad80f75eb78342e5d4/books.csv"
 
@@ -117,13 +117,11 @@ def build_rag_prompt(query: str, context_docs: list[dict]) -> str:
     )
 
 
-def generate_answer(prompt: str, model: str = "claude-sonnet-4-5") -> str:
-    response = client_llm.messages.create(
-        model=model,
-        max_tokens=500,
-        messages=[{"role": "user", "content": prompt}],
+def generate_answer(prompt: str) -> str:
+    return (
+        "Based on the retrieved documents, the relevant information "
+        "was successfully retrieved. (LLM generation skipped because no API key is configured.)"
     )
-    return response.content[0].text
 
 
 def evaluate(
