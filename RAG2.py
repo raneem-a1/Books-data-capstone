@@ -1,4 +1,4 @@
-!pip install chromadb sentence-transformers rank-bm25 numpy anthropic
+#!pip install chromadb sentence-transformers rank-bm25 numpy anthropic
 
 import os
 import re
