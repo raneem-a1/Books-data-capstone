@@ -17,12 +17,12 @@ with DAG(
 ) as dag:
 
     ingestion = BashOperator(
-        task_id="ingestion",
-        bash_command=(
-            f"cd {PROJECT_DIR} && "
-            "echo 'Ingestion stage completed'"
-        ),
-    )
+    task_id="ingestion",
+    bash_command=(
+        f"cd {PROJECT_DIR} && "
+        "python producer.py && timeout 30 python consumer.py"
+    ),
+)
 
     delta_lakehouse = BashOperator(
         task_id="delta_lakehouse",
