@@ -5,3 +5,8 @@ pyarrow
 deltalake
 great-expectations
 openlineage-python
+chromadb
+sentence-transformers
+rank-bm25
+numpy
+anthropic
