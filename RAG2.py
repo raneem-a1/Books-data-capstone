@@ -14,7 +14,7 @@ client_llm = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 #!wget -O Books.csv "https://gist.githubusercontent.com/jaidevd/23aef12e9bf56c618c41/raw/c05e98672b8d52fa0cb94aad80f75eb78342e5d4/books.csv"
 
 import pandas as pd
-books = pd.read_csv("Books.csv")
+books = pd.read_csv("data/Books.csv")
 DOCUMENTS = []
 for i, row in books.iterrows():
     DOCUMENTS.append({
