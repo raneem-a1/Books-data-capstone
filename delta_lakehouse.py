@@ -13,7 +13,7 @@ import pandas as pd
 from deltalake import DeltaTable, write_deltalake
 from deltalake.exceptions import DeltaError
 
-RAW_CSV     = "./data/books_raw.csv"
+RAW_CSV = "./data/Books.csv"
 BRONZE_PATH = "./data/lakehouse/bronze_books"
 SILVER_PATH = "./data/lakehouse/silver_books"
 GOLD_PATH   = "./data/lakehouse/gold_books"
