@@ -1,4 +1,68 @@
-Traceback (most recent call last):
-  File "/workspaces/Books-data-capstone/delta_lakehouse.py", line 13, in <module>
-    from deltalake import DeltaTable, write_deltalake
-ModuleNotFoundError: No module named 'deltalake'
+
+============================================================
+  BRONZE - raw landing
+============================================================
+Bronze written: 214 rows, 6 columns (includes 3 injected bad rows)
+     book_id                 Title        Author    Genre  Height Publisher
+211      212                   NaN  Ghost Author  fiction     200   Unknown
+212      213  Negative Height Book   Test Author  fiction     -15      Test
+213      214  Impossibly Tall Book   Test Author  fiction    9999      Test
+
+============================================================
+  SILVER - governed, cleaned table
+============================================================
+Silver written: 211 rows accepted, 3 rejected
+Rejected rows:
+     book_id                 Title  Height
+211      212                   NaN     200
+212      213  Negative Height Book     -15
+213      214  Impossibly Tall Book    9999
+
+============================================================
+  GOLD - genuine aggregate (avg book height + count per genre)
+============================================================
+Gold written: 12 genre-level aggregate rows
+                Genre  book_count  avg_height
+4             fiction          64       187.0
+7          nonfiction          30       200.5
+5             history          26       199.5
+2        data_science          17       235.2
+8          philosophy          17       196.9
+10            science          14       203.6
+0               comic          13       261.9
+1    computer_science          11       230.5
+3           economics          10       207.2
+6         mathematics           5       229.6
+11  signal_processing           3       236.7
+9          psychology           1       240.0
+
+============================================================
+  SCHEMA ENFORCEMENT - attempt a mismatched write (expect rejection)
+============================================================
+Write REJECTED as expected: SchemaMismatchError
+  Cannot cast schema, number of fields does not match: 7 vs 6
+
+============================================================
+  MERGE / UPSERT - correct a Height value, insert one new book
+============================================================
+MERGE complete.
+   book_id                                  Title  ... Height Publisher
+0     9000  Designing Data-Intensive Applications  ...    235  O'Reilly
+1        1               Fundamentals of Wavelets  ...    230     Wiley
+
+[2 rows x 6 columns]
+
+============================================================
+  TRANSACTION LOG + TIME TRAVEL
+============================================================
+Silver table has 2 commits in its transaction log:
+  version 1: MERGE
+  version 0: WRITE
+
+Reading Silver as of version 0 (before the MERGE):
+   book_id                     Title  Height
+0        1  Fundamentals of Wavelets     228
+1        2                Data Smart     235
+2        3  God Created the Integers     197
+
+Bronze / Silver / Gold Delta Lakehouse complete.

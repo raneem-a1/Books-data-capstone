@@ -1,8 +1,88 @@
-Traceback (most recent call last):
-  File "/workspaces/Books-data-capstone/quality_gate.py", line 18, in <module>
-    import great_expectations as gx
-ModuleNotFoundError: No module named 'great_expectations'
-Traceback (most recent call last):
-  File "/workspaces/Books-data-capstone/quality_gate.py", line 18, in <module>
-    import great_expectations as gx
-ModuleNotFoundError: No module named 'great_expectations'
+penLineageClient will use `console` transport
+{"eventTime": "2026-07-23T06:58:57.112015+00:00", "eventType": "START", "inputs": [], "job": {"facets": {}, "name": "quality_gate", "namespace": "books-capstone"}, "outputs": [], "producer": "https://github.com/raneem-a1/Books-data-capstone", "run": {"facets": {"tags": {"_producer": "https://github.com/OpenLineage/OpenLineage/tree/1.51.0/client/python", "_schemaURL": "https://openlineage.io/spec/facets/1-0-0/TagsRunFacet.json#/$defs/TagsRunFacet", "tags": [{"key": "openlineage_client_version", "source": "OPENLINEAGE_CLIENT", "value": "1.51.0"}]}}, "runId": "376225a7-3f12-4cf9-993f-c54141ace93e"}, "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"}
+Could not find local file-backed GX project
+Created temporary directory '/tmp/tmpmg1qid98' for ephemeral docs site
+Loading 'datasources' ->
+[]
+OpenLineage run_id: 376225a7-3f12-4cf9-993f-c54141ace93e
+Reading data from: /workspaces/Books-data-capstone/data/Books.csv
+
+[OpenLineage] START event emitted.
+
+Original dataset rows: 211
+Original missing Authors: 24
+Prepared baseline rows: 211
+Missing Authors after preparation: 0
+Missing Genres after preparation: 0
+Invalid Heights after preparation: 0
+
+No deliberately invalid rows were injected.
+Rows submitted to quality gate: 211
+
+
+Calculating Metrics:   0%|          | 0/20 [00:00<?, ?it/s]
+Calculating Metrics:   0%|          | 0/20 [00:00<?, ?it/s]
+Calculating Metrics:  10%|█         | 2/20 [00:00<00:00, 3724.96it/s]
+Calculating Metrics:  10%|█         | 2/20 [00:00<00:00, 2727.12it/s]
+Calculating Metrics:  15%|█▌        | 3/20 [00:00<00:00, 3492.34it/s]
+Calculating Metrics:  15%|█▌        | 3/20 [00:00<00:00, 2836.54it/s]
+Calculating Metrics:  35%|███▌      | 7/20 [00:00<00:00, 2927.23it/s]
+Calculating Metrics:  35%|███▌      | 7/20 [00:00<00:00, 2746.50it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 2349.03it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 2308.37it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 2285.10it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 2250.34it/s]
+{"eventTime": "2026-07-23T06:58:57.250743+00:00", "eventType": "COMPLETE", "inputs": [], "job": {"facets": {}, "name": "quality_gate", "namespace": "books-capstone"}, "outputs": [], "producer": "https://github.com/raneem-a1/Books-data-capstone", "run": {"facets": {"tags": {"_producer": "https://github.com/OpenLineage/OpenLineage/tree/1.51.0/client/python", "_schemaURL": "https://openlineage.io/spec/facets/1-0-0/TagsRunFacet.json#/$defs/TagsRunFacet", "tags": [{"key": "openlineage_client_version", "source": "OPENLINEAGE_CLIENT", "value": "1.51.0"}]}}, "runId": "376225a7-3f12-4cf9-993f-c54141ace93e"}, "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"}
+=================================================================
+GREAT EXPECTATIONS VALIDATION RESULTS
+==========O=======================================================
+[PASS] expect_column_values_to_not_be_null -- 0 violating row(s)
+[PASS] expect_column_values_to_not_be_null -- 0 violating row(s)
+[PASS] expect_column_values_to_be_between -- 0 violating row(s)
+
+QUALITY GATE PASSED: all expectations succeeded.
+[OpenLineage] COMPLETE event emitted.
+OpenLineageClient will use `console` transport
+{"eventTime": "2026-07-23T06:59:45.492620+00:00", "eventType": "START", "inputs": [], "job": {"facets": {}, "name": "quality_gate", "namespace": "books-capstone"}, "outputs": [], "producer": "https://github.com/raneem-a1/Books-data-capstone", "run": {"facets": {"tags": {"_producer": "https://github.com/OpenLineage/OpenLineage/tree/1.51.0/client/python", "_schemaURL": "https://openlineage.io/spec/facets/1-0-0/TagsRunFacet.json#/$defs/TagsRunFacet", "tags": [{"key": "openlineage_client_version", "source": "OPENLINEAGE_CLIENT", "value": "1.51.0"}]}}, "runId": "379026d8-c542-44bf-b657-e800dae6954a"}, "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"}
+Could not find local file-backed GX project
+Created temporary directory '/tmp/tmpf29i26ya' for ephemeral docs site
+Loading 'datasources' ->
+[]
+OpenLineage run_id: 379026d8-c542-44bf-b657-e800dae6954a
+Reading data from: /workspaces/Books-data-capstone/data/Books.csv
+
+[OpenLineage] START event emitted.
+
+Original dataset rows: 211
+Original missing Authors: 24
+Prepared baseline rows: 211
+Missing Authors after preparation: 0
+Missing Genres after preparation: 0
+Invalid Heights after preparation: 0
+
+Injected 3 deliberately invalid rows.
+Rows submitted to quality gate: 214
+
+
+Calculating Metrics:   0%|          | 0/20 [00:00<?, ?it/s]
+Calculating Metrics:   0%|          | 0/20 [00:00<?, ?it/s]
+Calculating Metrics:  10%|█         | 2/20 [00:00<00:00, 3140.62it/s]
+Calculating Metrics:  10%|█         | 2/20 [00:00<00:00, 2378.40it/s]
+Calculating Metrics:  15%|█▌        | 3/20 [00:00<00:00, 2939.93it/s]
+Calculating Metrics:  15%|█▌        | 3/20 [00:00<00:00, 2482.33it/s]
+Calculating Metrics:  35%|███▌      | 7/20 [00:00<00:00, 2166.00it/s]
+Calculating Metrics:  35%|███▌      | 7/20 [00:00<00:00, 2053.73it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 1972.35it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 1934.73it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 1905.33it/s]
+Calculating Metrics: 100%|██████████| 20/20 [00:00<00:00, 1868.45it/s]
+{"eventTime": "2026-07-23T06:59:45.572659+00:00", "eventType": "FAIL", "inputs": [], "job": {"facets": {}, "name": "quality_gate", "namespace": "books-capstone"}, "outputs": [], "producer": "https://github.com/raneem-a1/Books-data-capstone", "run": {"facets": {"tags": {"_producer": "https://github.com/OpenLineage/OpenLineage/tree/1.51.0/client/python", "_schemaURL": "https://openlineage.io/spec/facets/1-0-0/TagsRunFacet.json#/$defs/TagsRunFacet", "tags": [{"key": "openlineage_client_version", "source": "OPENLINEAGE_CLIENT", "value": "1.51.0"}]}}, "runId": "379026d8-c542-44bf-b657-e800dae6954a"}, "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"}
+=================================================================
+GREAT EXPECTATIONS VALIDATION RESULTS
+=================================================================
+[FAIL] expect_column_values_to_not_be_null -- 1 violating row(s)
+[PASS] expect_column_values_to_not_be_null -- 0 violating row(s)
+[FAIL] expect_column_values_to_be_between -- 2 violating row(s)
+
+QUALITY GATE FAILED: 2 expectation(s) failed.
+[OpenLineage] FAIL event emitted.
