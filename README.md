@@ -106,7 +106,8 @@ BooksProject/
 ```bash
 git clone <repository-url>
 
-cd BooksProject
+cd Books-data-capstone
+
 
 pip install -r requirements.txt
 ```
