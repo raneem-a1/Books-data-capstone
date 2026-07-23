@@ -1,0 +1,4 @@
+  File "/workspaces/Books-data-capstone/RAG2.py", line 1
+    !pip install chromadb sentence-transformers rank-bm25 numpy anthropic
+    ^
+SyntaxError: invalid syntax
