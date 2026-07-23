@@ -6,9 +6,9 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 📄 211 documents → 1059 chunks after splitting
 
 📦 Building ChromaDB vector index...
-Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3131.28it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3411.21it/s]
    ✅ 1059 chunks indexed (HNSW backend, all-MiniLM-L6-v2 embeddings)
-Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3220.81it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3300.10it/s]
 
 =================================================================
 QUERY: Who wrote Fundamentals of Wavelets?
@@ -18,41 +18,82 @@ QUERY: Who wrote Fundamentals of Wavelets?
   🔑 BM25 search:     6 candidates
   ⚡ RRF fusion:      6 merged candidates
   🎯 Cross-encoder reranking 6 candidates...
-Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 10204.41it/s]
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3502.79it/s]
 
   📝 Top-3 chunks after reranking:
     [1] Title: Fundamentals of Wavelets. Author: Goswami, Jaideva....
     [2] Author: Eddins, Steve. Genre: signal_processing....
     [3] Author: Shih, Frank. Genre: signal_processing....
-Traceback (most recent call last):
-  File "/workspaces/Books-data-capstone/RAG2.py", line 212, in <module>
-    main()
-  File "/workspaces/Books-data-capstone/RAG2.py", line 196, in main
-    answer = generate_answer(prompt)
-             ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspaces/Books-data-capstone/RAG2.py", line 121, in generate_answer
-    response = client_llm.messages.create(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_utils/_utils.py", line 294, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/resources/messages/messages.py", line 1050, in create
-    return self._post(
-           ^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_base_client.py", line 1536, in post
-    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_base_client.py", line 1137, in request
-    response, prepared = self._attempt_request(
-                         ^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_base_client.py", line 1282, in _attempt_request
-    request = self._build_request(options, retries_taken=retries_taken)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_base_client.py", line 539, in _build_request
-    headers = self._build_headers(options, retries_taken=retries_taken)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_base_client.py", line 469, in _build_headers
-    self._validate_headers(headers_dict, custom_headers)
-  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/anthropic/_client.py", line 392, in _validate_headers
-    raise TypeError(
-TypeError: "Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+  💬 Grounded answer:
+    Based on the retrieved documents, the relevant information was successfully retrieved. (LLM generation skipped because no API key is configured.)
+
+  📊 Retrieval metrics: {'context_precision': 1.0, 'avg_similarity': 0.554, 'chunks_in_context': 3}
+  ✅  Retrieval quality looks good
+
+=================================================================
+QUERY: Which books are published by Wiley?
+=================================================================
+
+  🔍 Vector search:   6 candidates
+  🔑 BM25 search:     6 candidates
+  ⚡ RRF fusion:      6 merged candidates
+  🎯 Cross-encoder reranking 6 candidates...
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3169.20it/s]
+
+  📝 Top-3 chunks after reranking:
+    [1] Publisher: Wiley...
+    [2] Publisher: Wiley...
+    [3] Publisher: HarperCollins...
+
+  💬 Grounded answer:
+    Based on the retrieved documents, the relevant information was successfully retrieved. (LLM generation skipped because no API key is configured.)
+
+  📊 Retrieval metrics: {'context_precision': 1.0, 'avg_similarity': 0.701, 'chunks_in_context': 3}
+  ✅  Retrieval quality looks good
+
+=================================================================
+QUERY: Show me fiction books.
+=================================================================
+
+  🔍 Vector search:   6 candidates
+  🔑 BM25 search:     6 candidates
+  ⚡ RRF fusion:      6 merged candidates
+  🎯 Cross-encoder reranking 6 candidates...
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3322.96it/s]
+
+  📝 Top-3 chunks after reranking:
+    [1] Author: Rowling, J K. Genre: fiction....
+    [2] S.. Genre: fiction....
+    [3] G.. Genre: fiction....
+
+  💬 Grounded answer:
+    Based on the retrieved documents, the relevant information was successfully retrieved. (LLM generation skipped because no API key is configured.)
+
+  📊 Retrieval metrics: {'context_precision': 1.0, 'avg_similarity': 0.598, 'chunks_in_context': 3}
+  ✅  Retrieval quality looks good
+
+=================================================================
+QUERY: Which books belong to the history category?
+=================================================================
+
+  🔍 Vector search:   6 candidates
+  🔑 BM25 search:     6 candidates
+  ⚡ RRF fusion:      6 merged candidates
+  🎯 Cross-encoder reranking 6 candidates...
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3301.66it/s]
+
+  📝 Top-3 chunks after reranking:
+    [1] Author: Fisk, Robert. Genre: history....
+    [2] Author: Fisk, Robert. Genre: history....
+    [3] Author: Friedman, Thomas. Genre: history....
+
+  💬 Grounded answer:
+    Based on the retrieved documents, the relevant information was successfully retrieved. (LLM generation skipped because no API key is configured.)
+
+  📊 Retrieval metrics: {'context_precision': 1.0, 'avg_similarity': 0.533, 'chunks_in_context': 3}
+  ✅  Retrieval quality looks good
+
+=================================================================
+Lab complete.
+=================================================================
