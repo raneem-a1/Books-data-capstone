@@ -3,3 +3,5 @@ pandas
 pydantic
 pyarrow
 deltalake
+great-expectations
+openlineage-python

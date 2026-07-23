@@ -60,20 +60,19 @@ BooksProject/
 │
 ├── data/
 │   └── Books.csv
-│
+├── dags/
+│   └── books_pipeline_dag.py
 ├── producer.py
 ├── consumer.py
+├── dlq_consumer.py
 ├── schema.py
+├── delta_lakehouse.py
+├── RAG2.py
+├── quality_gate.py
+├── docker-compose.yaml
 ├── requirements.txt
 ├── README.md
-│
-├── bronze/
-├── silver/
-├── gold/
-│
-├── airflow/
-├── rag/
-└── quality/
+└── .gitignore
 ```
 
 ---
@@ -144,13 +143,10 @@ python3 consumer.py
 - Kafka Consumer
 - Pydantic Schema Validation
 - Dead Letter Queue (DLQ)
-
-### In Progress
-
 - Delta Lakehouse
 - RAG Pipeline
 - Airflow Orchestration
-- Quality Gate
+- Great Expectations Quality Gate
 - OpenLineage
 
 ---

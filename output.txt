@@ -1,0 +1,18 @@
+OpenLineage run_id: 00653c7d-68e4-408e-a6cc-244ad3b0c2aa
+Reading data from: /Users/rnoom/BooksProject/data/Books.csv
+
+[OpenLineage] START event emitted.
+
+No deliberately invalid rows were injected.
+Loaded 211 rows for validation.
+
+=================================================================
+GREAT EXPECTATIONS VALIDATION RESULTS
+=================================================================
+[PASS] expect_column_values_to_not_be_null -- 0 violating row(s)
+[FAIL] expect_column_values_to_not_be_null -- 24 violating row(s)
+[PASS] expect_column_values_to_not_be_null -- 0 violating row(s)
+[PASS] expect_column_values_to_be_between -- 0 violating row(s)
+
+QUALITY GATE FAILED: 1 expectation(s) failed.
+[OpenLineage] FAIL event emitted.
