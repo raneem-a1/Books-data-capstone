@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/workspaces/Books-data-capstone/delta_lakehouse.py", line 13, in <module>
+    from deltalake import DeltaTable, write_deltalake
+ModuleNotFoundError: No module named 'deltalake'
